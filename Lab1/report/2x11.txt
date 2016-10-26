@@ -1,0 +1,13 @@
+ CPU     ID    FUNCTION:NAME
+   0  80418       fork:entry 
+   3  80418       fork:entry 
+   1  80418       fork:entry 
+
+ CPU     ID    FUNCTION:NAME
+   0  80158       exit:entry 
+
+ CPU     ID    FUNCTION:NAME
+   1  80159     printf:entry 
+
+ CPU     ID    FUNCTION:NAME
+   0  80159      write:entry 

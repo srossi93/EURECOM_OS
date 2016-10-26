@@ -1,0 +1,101 @@
+
+
+  __forkx                                                           1
+  __lwp_sigmask                                                     1
+  __schedctl                                                        1
+  __systemcall                                                      1
+  __write                                                           1
+  _calloc                                                           1
+  _cleanup                                                          1
+  _exithandle                                                       1
+  _fflush_l_iops                                                    1
+  _fflush_u                                                         1
+  _findbuf                                                          1
+  _getfp                                                            1
+  _malloc                                                           1
+  _ndoprnt                                                          1
+  _postfork_parent_handler                                          1
+  _prefork_handler                                                  1
+  _setbufend                                                        1
+  _setorientation                                                   1
+  _ti_critical                                                      1
+  _xflsbuf                                                          1
+  aplist_append                                                     1
+  aplist_delete                                                     1
+  aplist_insert                                                     1
+  aplist_test                                                       1
+  atexit_fini                                                       1
+  audit_objclose                                                    1
+  block_all_signals                                                 1
+  call_fini                                                         1
+  calloc                                                            1
+  continue_fork                                                  
+  defrag                                                         
+  exit                                                           
+  fflush                                                         
+  fork                                                           
+  forkx                                                          
+  free                                                           
+  fstat64                                                        
+  fstatat64                                                      
+  ioctl                                                          
+  isatty                                                         
+  isseekable                                                     
+  kill                                                           
+  libc_fini                                                      
+  libc_parent_atfork                                             
+  libc_prepare_atfork                                            
+  malloc                                                         
+  malloc_locks                                                   
+  malloc_unlocks                                                 
+  memchr                                                         
+  printf                                                         
+  rt_critical                                                    
+  setup_schedctl                                                 
+  split                                                          
+  strlen                                                         
+  suspend_fork                                                   
+  syscall                                                        
+  tsort                                                          
+  tsort_unsigned                                                 
+  unused                                                         
+  write                                                          
+  _realbufend                                                    
+  call_array                                                     
+  dep_visit                                                      
+  ferror                                                         
+  initorfini                                                     
+  pthread_setcancelstate                                         
+  visit                                                          
+  ___errno                                                       
+  _dep_visit                                                     
+  getbucketnum                                                   
+  getxfdat                                                          3
+  lfree                                                             3
+  _lookup_sym                                                       4
+  bind_one                                                          4
+  core_lookup_sym                                                   4
+  elf_bndr                                                          4
+  elf_hash                                                          4
+  elf_rtbndr                                                        4
+  is_dep_init                                                       4
+  load_completion                                                   4
+  lookup_sym                                                        4
+  memcpy                                                            4
+  memset                                                            4
+  _ti_bind_guard                                                    6
+  enter                                                             6
+  leave                                                             6
+  rd_event                                                          6
+  rt_bind_guard                                                     6
+  lmutex_lock                                                       7
+  lmutex_unlock                                                     7
+  callable                                                          8
+  elf_find_sym                                                      8
+  strcmp                                                            8
+  mutex_lock                                                       10
+  mutex_lock_impl                                                  10
+  mutex_unlock                                                     10
+  _ti_bind_clear                                                   12
+  rt_bind_clear                                                    12
+  set_cancel_pending_flag                                          14

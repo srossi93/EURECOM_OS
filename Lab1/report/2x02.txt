@@ -1,0 +1,53 @@
+manfredi   pts/1        Oct 11 15:01	(amiata.eurecom.fr)
+manfredi   pts/2        Oct 11 15:18	(amiata.eurecom.fr)
+root       pts/3        Oct 11 15:26	(omega2.eurecom.fr)
+zhangyi    pts/4        Oct 11 15:30	(ventoux.eurecom.fr)
+petitjet   pts/5        Oct 11 15:34	(matterhorn.eurecom.fr)
+maslowsk   pts/6        Oct 11 15:37	(geant.eurecom.fr)
+jerbi      pts/7        Oct 11 15:39	(yatsu.eurecom.fr)
+hamhoum    pts/8        Oct 11 15:40	(diableret.eurecom.fr)
+daudel     pts/9        Oct 11 15:41	(genis.eurecom.fr)
+osornio    pts/10       Oct 11 15:42	(meije.eurecom.fr)
+cebrat     pts/11       Oct 11 15:42	(gouter.eurecom.fr)
+rossi      pts/12       Oct 11 15:44	(chooyu.eurecom.fr)
+gong       pts/13       Oct 11 15:45	(luberon.eurecom.fr)
+condemi    pts/14       Oct 11 15:45	(olympe.eurecom.fr)
+nguyenmd   pts/15       Oct 11 15:48	(tangla.eurecom.fr)
+        0 swap ins
+        0 swap outs
+        0 pages swapped in
+        0 pages swapped out
+   783503 total address trans. faults taken
+      550 page ins
+        0 page outs
+      783 pages paged in
+        0 pages paged out
+   296894 total reclaims
+   296894 reclaims from free list
+        0 micro (hat) faults
+   783503 minor (as) faults
+      550 major faults
+   167649 copy-on-write faults
+   290103 zero fill page faults
+   216060 pages examined by the clock daemon
+        0 revolutions of the clock hand
+        0 pages freed by the clock daemon
+     1269 forks
+      850 vforks
+     2020 execs
+ 31435117 cpu context switches
+ 51201789 device interrupts
+   976804 traps
+ 10213769 system calls
+  3874932 total name lookups (cache hits 96%)
+    11256 user   cpu
+    79993 system cpu
+ 30751051 idle   cpu
+        0 stolen cpu
+     1306 forks
+      850 vforks
+strubel    pts/1        Oct 13 15:02	(amiata.eurecom.fr)
+derambur   pts/2        Oct 13 15:02	(jungfrau.eurecom.fr)
+rossi      pts/3        Oct 13 15:53	(jerkola.eurecom.fr)
+mendoza    pts/4        Oct 13 15:18	(apila.eurecom.fr)
+arnaudo    pts/5        Oct 13 15:54	(rocky.eurecom.fr)

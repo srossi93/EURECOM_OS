@@ -1,0 +1,6 @@
+The physical processor has 2 virtual processors (0-1)
+  x86 (GenuineIntel 206D7 family 6 model 45 step 7 clock 1800 MHz)
+	Intel(r) Xeon(r) CPU E5-2650L 0 @ 1.80GHz
+The physical processor has 2 virtual processors (2-3)
+  x86 (GenuineIntel 206D7 family 6 model 45 step 7 clock 1800 MHz)
+	Intel(r) Xeon(r) CPU E5-2650L 0 @ 1.80GHz

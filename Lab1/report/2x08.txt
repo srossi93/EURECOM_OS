@@ -1,0 +1,799 @@
+process child ret  = 0
+ CPU     ID                    FUNCTION:NAME
+   0  81524             tsort_unsigned:entry 
+   0  81523                      tsort:entry 
+   0  81461                set_environ:entry 
+   0  81333                 lookup_sym:entry 
+   0  81353                   elf_hash:entry 
+   0  81332                _lookup_sym:entry 
+   0  81330            core_lookup_sym:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81755                     strcmp:entry 
+   0  81755                     strcmp:entry 
+   0  81394                     calloc:entry 
+   0  81393                    _calloc:entry 
+   0  81391                     malloc:entry 
+   0  81390                    _malloc:entry 
+   0  81389                      split:entry 
+   0  81785                     memset:entry 
+   0  81522                 initorfini:entry 
+   0  81517                  dep_visit:entry 
+   0  81516                 _dep_visit:entry 
+   0  81517                  dep_visit:entry 
+   0  81516                 _dep_visit:entry 
+   0  81516                 _dep_visit:entry 
+   0  81515                      visit:entry 
+   0  81515                      visit:entry 
+   0  81522                 initorfini:entry 
+   0  81366              rt_get_extern:entry 
+   0  81365            get_lcinterface:entry 
+   0  81399                       free:entry 
+   0  81272                aplist_test:entry 
+   0  81548                tls_statmod:entry 
+   0  81394                     calloc:entry 
+   0  81393                    _calloc:entry 
+   0  81391                     malloc:entry 
+   0  81390                    _malloc:entry 
+   0  81389                      split:entry 
+   0  81785                     memset:entry 
+   0  84358          __tls_static_mods:entry 
+   0  83853                    lmalloc:entry 
+   0  83852               getbucketnum:entry 
+   0  83851         initial_allocation:entry 
+   0  84625               __systemcall:entry 
+   0  84357          tls_modinfo_alloc:entry 
+   0  83853                    lmalloc:entry 
+   0  83852               getbucketnum:entry 
+   0  81990                     memcpy:entry 
+   0  81399                       free:entry 
+   0  81272                aplist_test:entry 
+   0  81370                rt_thr_init:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81388                     defrag:entry 
+   0  81270              aplist_delete:entry 
+   0  81369              rt_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84298                  libc_init:entry 
+   0  82134                     atexit:entry 
+   0  83853                    lmalloc:entry 
+   0  83852               getbucketnum:entry 
+   0  84587               __getcontext:entry 
+   0  83853                    lmalloc:entry 
+   0  83852               getbucketnum:entry 
+   0  84496                  getrlimit:entry 
+   0  84492                     getpid:entry 
+   0  83853                    lmalloc:entry 
+   0  83852               getbucketnum:entry 
+   0  84608             ___lwp_private:entry 
+   0  84388              set_curthread:entry 
+   0  84142                mutex_setup:entry 
+   0  82864                atfork_init:entry 
+   0  82142             pthread_atfork:entry 
+   0  83853                    lmalloc:entry 
+   0  83852               getbucketnum:entry 
+   0  84203                lmutex_lock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  84202               mutex_unlock:entry 
+   0  84103                signal_init:entry 
+   0  83605                  setustack:entry 
+   0  84624                    syscall:entry 
+   0  84297            set_thread_vars:entry 
+   0  82001                    strncmp:entry 
+   0  82001                    strncmp:entry 
+   0  82001                    strncmp:entry 
+   0  82001                    strncmp:entry 
+   0  82001                    strncmp:entry 
+   0  82001                    strncmp:entry 
+   0  82001                    strncmp:entry 
+   0  82001                    strncmp:entry 
+   0  82001                    strncmp:entry 
+   0  82001                    strncmp:entry 
+   0  81367                   _ld_libc:entry 
+   0  81297                     caller:entry 
+   0  81470                    _caller:entry 
+   0  81365            get_lcinterface:entry 
+   0  82232              init_progname:entry 
+   0  81501                     dlinfo:entry 
+   0  81456                      enter:entry 
+   0  81368              rt_bind_guard:entry 
+   0  84325             _ti_bind_guard:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81297                     caller:entry 
+   0  81470                    _caller:entry 
+   0  81500                dlinfo_core:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84202               mutex_unlock:entry 
+   0  82231                setprogname:entry 
+   0  82004                    strrchr:entry 
+   0  83853                    lmalloc:entry 
+   0  83852               getbucketnum:entry 
+   0  84203                lmutex_lock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  82890                    strlcpy:entry 
+   0  81999                     strlen:entry 
+   0  81990                     memcpy:entry 
+   0  84362                  tls_setup:entry 
+   0  81990                     memcpy:entry 
+   0  84203                lmutex_lock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  83813          init_sigev_thread:entry 
+   0  82311                     getenv:entry 
+   0  82304                    initenv:entry 
+   0  84203                lmutex_lock:entry 
+   0  82631                  clean_env:entry 
+   0  82303                    envsize:entry 
+   0  81913            membar_producer:entry 
+   0  84204              lmutex_unlock:entry 
+   0  81914            membar_consumer:entry 
+   0  82305                    findenv:entry 
+   0  83704                   init_aio:entry 
+   0  84366         pthread_key_create:entry 
+   0  84365              thr_keycreate:entry 
+   0  84203                lmutex_lock:entry 
+   0  83853                    lmalloc:entry 
+   0  83852               getbucketnum:entry 
+   0  84203                lmutex_lock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  82311                     getenv:entry 
+   0  82304                    initenv:entry 
+   0  81914            membar_consumer:entry 
+   0  82305                    findenv:entry 
+   0  82311                     getenv:entry 
+   0  82304                    initenv:entry 
+   0  81914            membar_consumer:entry 
+   0  82305                    findenv:entry 
+   0  82311                     getenv:entry 
+   0  82304                    initenv:entry 
+   0  81914            membar_consumer:entry 
+   0  82305                    findenv:entry 
+   0  84488                     gethrt:entry 
+   0  81907             atomic_swap_32:entry 
+   0  84489            get_zone_offset:entry 
+   0  81907             atomic_swap_32:entry 
+   0  81456                      enter:entry 
+   0  81368              rt_bind_guard:entry 
+   0  84325             _ti_bind_guard:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81427                 call_array:entry 
+   0  81428                  call_init:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81456                      enter:entry 
+   0  81368              rt_bind_guard:entry 
+   0  84325             _ti_bind_guard:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81427                 call_array:entry 
+   0  81427                 call_array:entry 
+   0  81399                       free:entry 
+   0  81272                aplist_test:entry 
+   0  81267              aplist_append:entry 
+   0  80901              aplist_insert:entry 
+   0  81415                   rd_event:entry 
+   0  81414           rtld_db_postinit:entry 
+   0  81458                     unused:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81388                     defrag:entry 
+   0  81270              aplist_delete:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84202               mutex_unlock:entry 
+   0  81346            elf_entry_point:entry 
+   0  80573                     _start:entry 
+   0  81296                 elf_rtbndr:entry 
+   0  81573                   elf_bndr:entry 
+   0  81456                      enter:entry 
+   0  81368              rt_bind_guard:entry 
+   0  84325             _ti_bind_guard:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81333                 lookup_sym:entry 
+   0  81353                   elf_hash:entry 
+   0  81332                _lookup_sym:entry 
+   0  81330            core_lookup_sym:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81334                   bind_one:entry 
+   0  81431            load_completion:entry 
+   0  81426                is_dep_init:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84202               mutex_unlock:entry 
+   0  82134                     atexit:entry 
+   0  83853                    lmalloc:entry 
+   0  83852               getbucketnum:entry 
+   0  84203                lmutex_lock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  84202               mutex_unlock:entry 
+   0  82134                     atexit:entry 
+   0  83853                    lmalloc:entry 
+   0  83852               getbucketnum:entry 
+   0  84203                lmutex_lock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  84202               mutex_unlock:entry 
+   0  81296                 elf_rtbndr:entry 
+   0  81573                   elf_bndr:entry 
+   0  81456                      enter:entry 
+   0  81368              rt_bind_guard:entry 
+   0  84325             _ti_bind_guard:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81333                 lookup_sym:entry 
+   0  81353                   elf_hash:entry 
+   0  81332                _lookup_sym:entry 
+   0  81330            core_lookup_sym:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81755                     strcmp:entry 
+   0  81334                   bind_one:entry 
+   0  81431            load_completion:entry 
+   0  81426                is_dep_init:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84202               mutex_unlock:entry 
+   0  81854                   _fpstart:entry 
+   0  84626                     sysi86:entry 
+   0  80574                      __fsr:entry 
+   0  80576                       main:entry 
+   0  81296                 elf_rtbndr:entry 
+   0  81573                   elf_bndr:entry 
+   0  81456                      enter:entry 
+   0  81368              rt_bind_guard:entry 
+   0  84325             _ti_bind_guard:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81333                 lookup_sym:entry 
+   0  81353                   elf_hash:entry 
+   0  81332                _lookup_sym:entry 
+   0  81330            core_lookup_sym:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81334                   bind_one:entry 
+   0  81431            load_completion:entry 
+   0  81426                is_dep_init:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84202               mutex_unlock:entry 
+   0  84022                       fork:entry 
+   0  84021                      forkx:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  82143           _prefork_handler:entry 
+   0  82861        libc_prepare_atfork:entry 
+   0  82546               malloc_locks:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  84097          block_all_signals:entry 
+   0  84173             setup_schedctl:entry 
+   0  84565                 __schedctl:entry 
+   0  84312               suspend_fork:entry 
+   0  84203                lmutex_lock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  84603                    __forkx:entry 
+   0  84313              continue_fork:entry 
+   0  84203                lmutex_lock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  83495              __lwp_sigmask:entry 
+   0  84624                    syscall:entry 
+   0  84202               mutex_unlock:entry 
+   0  82144   _postfork_parent_handler:entry 
+   0  82863         libc_parent_atfork:entry 
+   0  82547             malloc_unlocks:entry 
+   0  84202               mutex_unlock:entry 
+   0  84202               mutex_unlock:entry 
+   0  81296                 elf_rtbndr:entry 
+   0  81573                   elf_bndr:entry 
+   0  81456                      enter:entry 
+   0  81368              rt_bind_guard:entry 
+   0  84325             _ti_bind_guard:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81333                 lookup_sym:entry 
+   0  81353                   elf_hash:entry 
+   0  81332                _lookup_sym:entry 
+   0  81330            core_lookup_sym:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81334                   bind_one:entry 
+   0  81431            load_completion:entry 
+   0  81426                is_dep_init:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84202               mutex_unlock:entry 
+   0  84038                      sleep:entry 
+   0  84036                  nanosleep:entry 
+   0  84428                __nanosleep:entry 
+process parent ret  = 7890
+   0  81296                 elf_rtbndr:entry 
+   0  81573                   elf_bndr:entry 
+   0  81456                      enter:entry 
+   0  81368              rt_bind_guard:entry 
+   0  84325             _ti_bind_guard:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81333                 lookup_sym:entry 
+   0  81353                   elf_hash:entry 
+   0  81332                _lookup_sym:entry 
+   0  81330            core_lookup_sym:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81334                   bind_one:entry 
+   0  81431            load_completion:entry 
+   0  81426                is_dep_init:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84202               mutex_unlock:entry 
+   0  83207                     printf:entry 
+   0  83363            _setorientation:entry 
+   0  83200                   _ndoprnt:entry 
+   0  83283                   _findbuf:entry 
+   0  82488                     isatty:entry 
+   0  82251                   ___errno:entry 
+   0  84499                      ioctl:entry 
+   0  81815                   __cerror:entry 
+   0  82251                   ___errno:entry 
+   0  82251                   ___errno:entry 
+   0  83650                    fstat64:entry 
+   0  83647                  fstatat64:entry 
+   0  84625               __systemcall:entry 
+   0  82549                     malloc:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  82550           _malloc_unlocked:entry 
+   0  82558                  cleanfree:entry 
+   0  82553                  _morecore:entry 
+   0  83554                       sbrk:entry 
+   0  84203                lmutex_lock:entry 
+   0  83555             _sbrk_unlocked:entry 
+   0  84467              _brk_unlocked:entry 
+   0  84467              _brk_unlocked:entry 
+   0  84204              lmutex_unlock:entry 
+   0  83554                       sbrk:entry 
+   0  84203                lmutex_lock:entry 
+   0  83555             _sbrk_unlocked:entry 
+   0  84467              _brk_unlocked:entry 
+   0  84204              lmutex_unlock:entry 
+   0  82552                   realfree:entry 
+   0  84202               mutex_unlock:entry 
+   0  83317                 _setbufend:entry 
+   0  83316                   getxfdat:entry 
+   0  83315                 isseekable:entry 
+   0  82251                   ___errno:entry 
+   0  83650                    fstat64:entry 
+   0  83647                  fstatat64:entry 
+   0  84625               __systemcall:entry 
+   0  82251                   ___errno:entry 
+   0  83318                _realbufend:entry 
+   0  83316                   getxfdat:entry 
+   0  83318                _realbufend:entry 
+   0  83316                   getxfdat:entry 
+   0  81990                     memcpy:entry 
+   0  81999                     strlen:entry 
+   0  81990                     memcpy:entry 
+   0  81990                     memcpy:entry 
+   0  83301                     ferror:entry 
+   0  83301                     ferror:entry 
+   0  81296                 elf_rtbndr:entry 
+   0  81573                   elf_bndr:entry 
+   0  81456                      enter:entry 
+   0  81368              rt_bind_guard:entry 
+   0  84325             _ti_bind_guard:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81333                 lookup_sym:entry 
+   0  81353                   elf_hash:entry 
+   0  81332                _lookup_sym:entry 
+   0  81330            core_lookup_sym:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81460                   callable:entry 
+   0  81354               elf_find_sym:entry 
+   0  81755                     strcmp:entry 
+   0  81334                   bind_one:entry 
+   0  81431            load_completion:entry 
+   0  81426                is_dep_init:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84202               mutex_unlock:entry 
+   0  81971                       exit:entry 
+   0  82135                _exithandle:entry 
+   0  83872     pthread_setcancelstate:entry 
+   0  84203                lmutex_lock:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84204              lmutex_unlock:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  81949                     _getfp:entry 
+   0  83854                      lfree:entry 
+   0  83852               getbucketnum:entry 
+   0  81991                     memset:entry 
+   0  84203                lmutex_lock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  81430                atexit_fini:entry 
+   0  81456                      enter:entry 
+   0  81368              rt_bind_guard:entry 
+   0  84325             _ti_bind_guard:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81524             tsort_unsigned:entry 
+   0  81523                      tsort:entry 
+   0  81394                     calloc:entry 
+   0  81393                    _calloc:entry 
+   0  81391                     malloc:entry 
+   0  81390                    _malloc:entry 
+   0  81389                      split:entry 
+   0  81785                     memset:entry 
+   0  81522                 initorfini:entry 
+   0  81517                  dep_visit:entry 
+   0  81516                 _dep_visit:entry 
+   0  81517                  dep_visit:entry 
+   0  81516                 _dep_visit:entry 
+   0  81516                 _dep_visit:entry 
+   0  81515                      visit:entry 
+   0  81515                      visit:entry 
+   0  81522                 initorfini:entry 
+   0  81429                  call_fini:entry 
+   0  81427                 call_array:entry 
+   0  81427                 call_array:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84202               mutex_unlock:entry 
+   0  84299                  libc_fini:entry 
+   0  81456                      enter:entry 
+   0  81368              rt_bind_guard:entry 
+   0  84325             _ti_bind_guard:entry 
+   0  84197                 mutex_lock:entry 
+   0  84196            mutex_lock_impl:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  81600             audit_objclose:entry 
+   0  81374                rt_critical:entry 
+   0  84327               _ti_critical:entry 
+   0  81399                       free:entry 
+   0  81272                aplist_test:entry 
+   0  81267              aplist_append:entry 
+   0  80901              aplist_insert:entry 
+   0  81458                     unused:entry 
+   0  81459                      leave:entry 
+   0  81415                   rd_event:entry 
+   0  81388                     defrag:entry 
+   0  81270              aplist_delete:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  81369              rt_bind_clear:entry 
+   0  84326             _ti_bind_clear:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84202               mutex_unlock:entry 
+   0  83854                      lfree:entry 
+   0  83852               getbucketnum:entry 
+   0  81991                     memset:entry 
+   0  84203                lmutex_lock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  83310                   _cleanup:entry 
+   0  83322                     fflush:entry 
+   0  83323             _fflush_l_iops:entry 
+   0  83324                  _fflush_u:entry 
+   0  83321                   _xflsbuf:entry 
+   0  83318                _realbufend:entry 
+   0  83316                   getxfdat:entry 
+   0  84029                      write:entry 
+   0  84583                    __write:entry 
+   0  83854                      lfree:entry 
+   0  83852               getbucketnum:entry 
+   0  81991                     memset:entry 
+   0  84203                lmutex_lock:entry 
+   0  84204              lmutex_unlock:entry 
+   0  84202               mutex_unlock:entry 
+   0  83872     pthread_setcancelstate:entry 
+   0  84203                lmutex_lock:entry 
+   0  83880    set_cancel_pending_flag:entry 
+   0  84204              lmutex_unlock:entry 
+
+
+
+  forksys                                                     
+  fstatat64                                                   
+  ioctl                                                       
+  lwp_sigmask                                                 
+  nanosleep                                                   
+  rexit                                                       
+  schedctl                                                    
+  write                                                       
+
+
+  __forkx                                                  
+  __lwp_sigmask                                            
+  __nanosleep                                              
+  __schedctl                                               
+  __systemcall                                             
+  __write                                                  
+  _calloc                                                  
+  _cleanup                                                 
+  _exithandle                                              
+  _fflush_l_iops                                           
+  _fflush_u                                                
+  _findbuf                                                 
+  _getfp                                                   
+  _malloc                                                  
+  _ndoprnt                                                 
+  _postfork_parent_handler                                 
+  _prefork_handler                                         
+  _setbufend                                               
+  _setorientation                                          
+  _ti_critical                                             
+  _xflsbuf                                                 
+  aplist_append                                            
+  aplist_delete                                            
+  aplist_insert                                            
+  aplist_test                                              
+  atexit_fini                                              
+  audit_objclose                                           
+  block_all_signals                                        
+  call_fini                                                
+  calloc                                                   
+  continue_fork                                            
+  defrag                                                   
+  exit                                                     
+  fflush                                                   
+  fork                                                     
+  forkx                                                    
+  free                                                     
+  fstat64                                                  
+  fstatat64                                                
+  ioctl                                                    
+  isatty                                                   
+  isseekable                                               
+  libc_fini                                                
+  libc_parent_atfork                                       
+  libc_prepare_atfork                                      
+  malloc                                                   
+  malloc_locks                                             
+  malloc_unlocks                                           
+  memchr                                                   
+  nanosleep                                                
+  printf                                                   
+  rt_critical                                              
+  setup_schedctl                                           
+  sleep                                                    
+  split                                                    
+  strlen                                                   
+  suspend_fork                                             
+  syscall                                                  
+  tsort                                                    
+  tsort_unsigned                                           
+  unused                                                   
+  write                                                    
+  _realbufend                                              
+  call_array                                               
+  dep_visit                                                
+  ferror                                                   
+  initorfini                                               
+  pthread_setcancelstate                                   
+  visit                                                    
+  ___errno                                                 
+  _dep_visit                                               
+  _lookup_sym                                              
+  bind_one                                                 
+  core_lookup_sym                                          
+  elf_bndr                                                 
+  elf_hash                                                 
+  elf_rtbndr                                               
+  getbucketnum                                             
+  getxfdat                                                 
+  is_dep_init                                              
+  lfree                                                    
+  load_completion                                          
+  lookup_sym                                               
+  memcpy                                                   
+  memset                                                   
+  _ti_bind_guard                                           
+  enter                                                    
+  leave                                                    
+  rd_event                                                 
+  rt_bind_guard                                            
+  callable                                                 
+  elf_find_sym                                             
+  strcmp                                                   
+  lmutex_lock                                              
+  lmutex_unlock                                            
+  mutex_lock                                               
+  mutex_lock_impl                                          
+  mutex_unlock                                             
+  _ti_bind_clear                                           
+  rt_bind_clear                                            
+  set_cancel_pending_flag                                  
+
+
+  __forkx                                                  
+  __lwp_sigmask                                            
+  __nanosleep                                              
+  __schedctl                                               
+  __systemcall                                             
+  __write                                                  
+  _calloc                                                  
+  _cleanup                                                 
+  _exithandle                                              
+  _fflush_l_iops                                           
+  _fflush_u                                                
+  _findbuf                                                 
+  _getfp                                                   
+  _malloc                                                  
+  _ndoprnt                                                 
+  _postfork_parent_handler                                 
+  _prefork_handler                                         
+  _setbufend                                               
+  _setorientation                                          
+  _ti_critical                                             
+  _xflsbuf                                                 
+  aplist_append                                            
+  aplist_delete                                            
+  aplist_insert                                            
+  aplist_test                                              
+  atexit_fini                                              
+  audit_objclose                                           
+  block_all_signals                                        
+  call_fini                                                
+  calloc                                                   
+  continue_fork                                            
+  defrag                                                   
+  exit                                                     
+  fflush                                                   
+  fork                                                     
+  forkx                                                    
+  free                                                     
+  fstat64                                                           1
+  fstatat64                                                         1
+  ioctl                                                             1
+  isatty                                                            1
+  isseekable                                                        1
+  libc_fini                                                         1
+  libc_parent_atfork                                                1
+  libc_prepare_atfork                                               1
+  malloc                                                            1
+  malloc_locks                                                      1
+  malloc_unlocks                                                    1
+  memchr                                                            1
+  nanosleep                                                         1
+  printf                                                            1
+  rt_critical                                                       1
+  setup_schedctl                                                    1
+  sleep                                                             1
+  split                                                             1
+  strlen                                                            1
+  suspend_fork                                                      1
+  syscall                                                           1
+  tsort                                                             1
+  tsort_unsigned                                                    1
+  unused                                                            1
+  write                                                             1
+  _realbufend                                                       2
+  call_array                                                        2
+  dep_visit                                                         2
+  ferror                                                            2
+  initorfini                                                        2
+  pthread_setcancelstate                                            2
+  visit                                                             2
+  ___errno                                                          3
+  _dep_visit                                                        3
+  _lookup_sym                                                       3
+  bind_one                                                          3
+  core_lookup_sym                                                   3
+  elf_bndr                                                          3
+  elf_hash                                                          3
+  elf_rtbndr                                                        3
+  getbucketnum                                                      3
+  getxfdat                                                          3
+  is_dep_init                                                       3
+  lfree                                                             3
+  load_completion                                                   3
+  lookup_sym                                                        3
+  memcpy                                                            4
+  memset                                                            4
+  _ti_bind_guard                                                    5
+  enter                                                             5
+  leave                                                             5
+  rd_event                                                          5
+  rt_bind_guard                                                     5
+  callable                                                          6
+  elf_find_sym                                                      6
+  strcmp                                                            6
+  lmutex_lock                                                       7
+  lmutex_unlock                                                     7
+  mutex_lock                                                        9
+  mutex_lock_impl                                                   9
+  mutex_unlock                                                      9
+  _ti_bind_clear                                                   10
+  rt_bind_clear                                                    10
+  set_cancel_pending_flag                                          12

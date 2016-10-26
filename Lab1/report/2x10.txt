@@ -1,0 +1,5 @@
+SIGKILL was sent to fork_palmiero by Christian Palmiero
+SIGKILL was sent to rossi_fork by Simone Rossi
+SIGKILL was sent to fork_palmiero by Christian Palmiero
+
+

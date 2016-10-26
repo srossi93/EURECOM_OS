@@ -1,0 +1,3 @@
+#!/usr/sbin/dtrace -s
+pid$1:::entry
+{ @count_table[probefunc]=count(); }

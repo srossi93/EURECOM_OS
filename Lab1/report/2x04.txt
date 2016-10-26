@@ -1,0 +1,3 @@
+fork01.c: In function ‘main’:
+fork01.c:4:3: error: unknown type name ‘pid_t’
+fork01.c:19:1: error: expected ‘;’ before ‘}’ 

@@ -1,0 +1,54 @@
+     d4 /usr/lib/ld.so.1
+    9b8 child
+    9be parent
+    9c5 process %s ret  = %ld
+    b7e YZ]Ð
+    bb8 []Ë
+    c01 []Ë
+    c18 却&
+    cbd $ÐU
+    d64 [^]Ë
+There are 29 section headers, starting at offset 0x1974:
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .interp           PROGBITS        080500d4 0000d4 000011 00   A  0   0  1
+  [ 2] .hash             HASH            080500e8 0000e8 000100 04   A  4   0  4
+  [ 3] .SUNW_ldynsym     LOOS+ffffff3    080501e8 0001e8 0000d0 10   A  5  13  4
+  [ 4] .dynsym           DYNSYM          080502b8 0002b8 0001f0 10   A  5   1  4
+  [ 5] .dynstr           STRTAB          080504a8 0004a8 000400 00  AS  0   0  1
+  [ 6] .SUNW_version     VERNEED         080508a8 0008a8 000030 01   A  5   1  4
+  [ 7] .SUNW_versym      VERSYM          080508d8 0008d8 00003e 02   A  4   0  4
+  [ 8] .SUNW_dynsymsort  LOOS+ffffff1    08050918 000918 000038 04   A  3   0  4
+  [ 9] .SUNW_reloc       REL             08050950 000950 000028 08   A  4   0  4
+  [10] .rel.plt          REL             08050978 000978 000040 08  AI  4  16  4
+  [11] .rodata           PROGBITS        080509b8 0009b8 000024 00   A  0   0  1
+  [12] .plt              PROGBITS        080509dc 0009dc 000090 10  AX  0   0  4
+  [13] .text             PROGBITS        08050a70 000a70 0002fc 00  AX  0   0 16
+  [14] .init             PROGBITS        08050d70 000d70 00001d 00  AX  0   0 16
+  [15] .fini             PROGBITS        08050d90 000d90 000018 00  AX  0   0 16
+  [16] .got              PROGBITS        08060da8 000da8 000038 04  WA  0   0  4
+  [17] .dynamic          DYNAMIC         08060de0 000de0 000138 08  WA  5   0  4
+  [18] .eh_frame         PROGBITS        08060f18 000f18 000004 00  WA  0   0  4
+  [19] .data             PROGBITS        08060f20 000f20 000060 00  WA  0   0  8
+  [20] .ctors            PROGBITS        08060f80 000f80 000008 00  WA  0   0  4
+  [21] .dtors            PROGBITS        08060f88 000f88 000008 00  WA  0   0  4
+  [22] .jcr              PROGBITS        08060f90 000f90 000004 00  WA  0   0  4
+  [23] .tm_clone_table   PROGBITS        08060f94 000f94 000000 00  WA  0   0  4
+  [24] .bss              NOBITS          08060f94 000f94 000008 00  WA  0   0  4
+  [25] .symtab           SYMTAB          00000000 000f94 0005b0 10     26  61  4
+  [26] .strtab           STRTAB          00000000 001544 0002e6 00   S  0   0  1
+  [27] .comment          PROGBITS        00000000 00182a 000058 01  MS  0   0  1
+  [28] .shstrtab         STRTAB          00000000 001882 0000f1 00   S  0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings)
+  I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)
+  O (extra OS processing required) o (OS specific), p (processor specific)
+
+rossi_fork:     file format elf32-i386-sol2
+
+Contents of section .rodata:
+ 80509b8 6368696c 64007061 72656e74 0070726f  child.parent.pro
+ 80509c8 63657373 20257320 72657420 203d2025  cess %s ret  = %
+ 80509d8 6c640a00                             ld..            

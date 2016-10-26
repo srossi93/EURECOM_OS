@@ -1,0 +1,218 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% University/School Laboratory Report
+% LaTeX Template
+% Version 3.1 (25/3/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Linux and Unix Users Group at Virginia Tech Wiki 
+% (https://vtluug.org/wiki/Example_LaTeX_chem_lab_report)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+%\usepackage[version=3]{mhchem} % Package for chemical equation typesetting
+%\usepackage{siunitx} % Provides the \SI{}{} and \si{} command for typesetting SI units
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage{natbib} % Required to change bibliography style to APA
+\usepackage{amsmath} % Required for some math elements 
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily, breaklines=true}
+\setlength\parindent{2pt} % Removes all indentation from paragraphs
+
+%\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+
+%\usepackage{times} % Uncomment to use the Times New Roman font
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Laboratory on processes\\ OS - Operating System} % Title
+
+\author{Simone \textsc{Rossi}} % Author name
+
+\date{\today} % Date for the report
+
+\begin{document}
+
+\maketitle % Insert the title, author and date
+
+\begin{center}
+\begin{tabular}{l r}
+Date Performed: & 13/20 October 2016 \\ % Date the experiment was performed
+Partners: & Simone Rossi \\ % Partner names
+%& Mary Smith \\
+%Instructor: & Professor Smith % Instructor/supervisor
+\end{tabular}
+\end{center}
+
+% If you wish to include an abstract, uncomment the lines below
+% \begin{abstract}
+% Abstract text
+% \end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section{Information on Operating Systems}
+\subsection{History of Windows}
+According to the Wikipedia page of Windows NT, it is written in C, C++ and Assembly language.
+The spectum of programming languages used is quite wide and is needed to explore different 
+levels of abstraction with the right language. For example, probably boot operations and high 
+performance applications (like ``critical'' drivers, such as memory management) were been written
+in assembly, while ``normal'' drivers (power management, audio, video, network, \dots) and system
+libraryies were been written in a higher level language like C. Finally, GUI may been written in
+C++.  
+
+\subsection{Linux Kernel}
+\begin{itemize}
+
+\item[1]
+\texttt{uname -a} prints system informations, such as the version of the operating system and the 
+name of the machine in use. To print only the system's version the command to be run is 
+\texttt{uname -v}, which in my case showed \texttt{#121-Ubuntu SMP Wed Jan 20 10:50:42 UTC 2016}\\
+
+\item[4]
+\texttt{/home/Local\_Data} is a local directory on the PC, since is not part of the mounted filesystem
+
+\item[6] 
+I didn't know the difference between ``z'' compression and ``tar'' compression. After a fast research, 
+seems that tar compression is not a real compression: it is just an utility to collect many files into just 
+one archive; on the contrary, with ``z'' the data is compressed with the LZW algorithm.
+
+\item[7]
+Yes, all the source file are prepared to be configure to target a specific platform. After the configuration, 
+which I left with default parameters, the kernel has been compiled. At the end, to use the new kernel, it 
+has to be mount on a new root partition.
+\end{itemize}
+
+
+\section{Analyzing processes}
+
+\begin{itemize}
+
+\item[2]
+Here is reported the result of the command \texttt{vmstat -s}.
+\lstinputlisting[firstline=16, lastline=48]{2x02.txt}
+All the these informations are statistics that the OS keeps track since bootup: some of them are related to memory
+management (like pages in and out) and others to forks and system calls. Since bootup, the system has executed 
+1269 \texttt{forks} and 850 \texttt{vforks}.
+
+\item[4]
+The compilation ended with two errors:
+\lstinputlisting[]{2x04.txt}
+These errors are solved including the library \texttt{<unistd.h>} and a semicolomn in line 18.
+
+\item[5] 
+To simply get rid the warning I added a \texttt{return 0;}.
+
+\item[6]
+There is a run time error, a segmantation fault. 
+Looking at the strings of the executable file, this is the result:
+\lstinputlisting[firstline=1, lastline=10]{2x06.txt}
+The strings we are interested in start with offset \texttt{0009B8}. Reading the ELF file, I found that the 
+correspondent section is read-only and it has not the privilege to be written 
+\lstinputlisting[firstline=23, lastline=28]{2x06.txt}
+These lines, finally, are dump of the binary file in the section \texttt{.rodata}.
+\lstinputlisting[firstline=51, lastline=54]{2x06.txt}
+
+
+
+\item[7]
+To make a more robust code, I simply added a control on the return value of the fork.
+\lstinputlisting[]{2x07.txt}
+
+\item[8]
+These are a few lines of a long list of function and system calls:
+\lstinputlisting[firstline=2, lastline=15]{2x08.txt}
+Some of them are system calls (like \texttt{getpid}) and others are function calls (like \texttt{mutex\_lock} and \texttt{mutex\_unlock}).
+After that, I monitored the system call of my program:
+\lstinputlisting[firstline=586, lastline=593]{2x08.txt}
+For instance, \texttt{forksys} refears to the fork function and \texttt{nanosleep} to sleep function.
+To run the provided script, I also wrote a little script to automate the retrive of the PID
+\begin{lstlisting}
+./rossi_fork &\
+read pid <<<  $( ps | grep rossi_fo | awk '{print $1;}');\
+echo $pid;\
+./dtracescript $(echo $pid) >> 2x08.txt 
+\end{lstlisting}
+The result of this is script is the following (just only few lines).
+\lstinputlisting[firstline=596, lastline=620]{2x08.txt}
+
+\item[9]
+Using the same script and adding a couple of instruction in the source file, I can monitor the right moment in which the child is killed.
+\lstinputlisting[firstline=37, lastline=45]{2x09.txt}
+%./rossi_fork & read pid <<<  $( ps | grep rossi_fo | awk '{print $1;}'); echo $pid; ./dtracescript $(echo $pid) > 2x09.txt & sleep 10; kill -9 $pid
+
+\item[10]
+Using the provided script, this is the resut.
+\lstinputlisting[]{2x10.txt}
+
+\item[11]
+The program I wrote is the following.
+\lstinputlisting[language=c]{../src/fork02.c}
+Checking with \texttt{ps} and \texttt{dtrace} I verified that It correctly spawns three children.
+\lstinputlisting[firstline=1, lastline=4]{2x11.txt} 
+I also traced two function calls (\texttt{printf} and \texttt{exit}) and one system call (\texttt{write})
+\lstinputlisting[firstline=5]{2x11.txt} 
+
+
+\item[12]
+To display information about the number and/or types of processors installed on the system, the commad to run is \texttt{psrinfo -p -v}. For the machine \texttt{calibra}, the result is the following:
+\lstinputlisting[]{2x12.txt} 
+To map a process to a given set of virtual (or physical) processors the command to run is \texttt{pbind -b -c 0-1 ``pid''}. In this case, the ``pid'' process is mapped to virtual processors 0 and 1 (physical processor 0).
+
+\end{itemize}
+
+
+\section{Communication between processes}
+\begin{itemize}
+\item[2]
+In the original program, only the ``sender'' creates the file while the ``receiver'' opens it only in read mode. This will bring to a condition race: the order of execution of the two processes is not subjected to any constrain: the scheduler can first schedule the sender and then the receiver or in the opposite order. In the first case, everything work properly while in the second case the receiver tries to open a file which doesn't exist yet. The solution could be introduce a synchonization between processes (likely using semaphores) or create a delay in the receiver before it starts to work on the queue (using for example a \texttt{sleep} system call.\\
+
+\lstinputlisting[language=c, firstline = 99,  lastline = 113]{../src/mq01.c}
+
+Finally, this is the \texttt{dtrace} result run on this program (the complete dump is provided as additional material).
+\lstinputlisting[firstline=1, lastline=40]{3x02.txt}
+
+   
+\item[3]
+For this exercise, there are three main actors: a sender (son11), a forwarder (son2) and a receiver (son12). \\
+This is source code of the sender:
+\lstinputlisting[language=c, firstline=62, lastline=74 ]{../src/mq02.c}
+This is source code of the forwarder:
+\lstinputlisting[language=c, firstline=152, lastline=166 ]{../src/mq02.c}
+This is source code of the receiver:
+\lstinputlisting[language=c, firstline=81, lastline=93 ]{../src/mq02.c}
+This is the source code needed to spawn the correct process tree:
+\lstinputlisting[language=c, firstline=104, lastline=147 ]{../src/mq02.c}
+
+This is the terminal dump of a run of this program:
+\lstinputlisting[]{3x03.txt}
+
+
+\item[\bf Bonus] 
+For the bonus question, the same forwarding operation is now performed also by  the son1 and this is the source code to do that:
+\lstinputlisting[language=c, firstline=143, lastline=162 ]{../src/mq03.c}
+The only different with respect to the previous program is the inclusion of two \texttt{OVER} number from the sender. This is need to guarantee that both son1 and son2 terminate their executions.\\
+\lstinputlisting[language=c, firstline=62, lastline=75 ]{../src/mq03.c}
+Finally, this is the terminal dump of this last program.
+\lstinputlisting[]{3x04.txt}
+
+
+
+
+ \end{itemize}
+\end{document}

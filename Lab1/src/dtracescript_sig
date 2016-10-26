@@ -1,0 +1,5 @@
+#!/usr/sbin/dtrace -wqs
+proc:::signal-send
+/args[2] == SIGKILL/
+{ printf("SIGKILL was sent to %s by ", args[1]->pr_fname); system("getent passwd %d | cut -d: -f5", uid);
+}
