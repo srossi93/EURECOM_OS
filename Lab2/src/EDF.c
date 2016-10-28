@@ -11,20 +11,18 @@
 #define RUNNING 2
 #define TERMINATED 3
 
-
-
 typedef struct rttask {
   /* Initial elements */
   char name[MAX_TASK_NAME_SIZE];
   unsigned int arrival_time;      // Arrival Time
   unsigned int computation_time;  // Computation Time
   unsigned int relative_deadline; // Relative Deadline
-  
+
   /* Used by scheduler */
-  unsigned int state;             // 
+  unsigned int state;             //
   unsigned int computations_done; // Number of computations done
-  unsigned int num_executions ;   // Number of executions completed 
-  
+  unsigned int num_executions ;   // Number of executions completed
+
 } rttask;
 
 char *states[] = {"admission", "runnable", "running", "terminated"};
@@ -36,20 +34,20 @@ void print_tasks(rttask tasks[], int num_tasks, int current_time) {
   int i;
 
   for(i = 1; i < num_tasks; i++) {
-    printf("Task: %s  arrival_time:%d state:%s  computations:%d/%d time_to_deadline:%d\n", 
-	   tasks[i].name, 
-	   tasks[i].arrival_time, 
-	   get_state_string(tasks[i].state), 
-	   tasks[i].computations_done, 
+    printf("Task: %s  arrival_time:%d state:%s  computations:%d/%d time_to_deadline:%d\n",
+	   tasks[i].name,
+	   tasks[i].arrival_time,
+	   get_state_string(tasks[i].state),
+	   tasks[i].computations_done,
 	   tasks[i].computation_time,
 	   (tasks[i].arrival_time + (tasks[i].num_executions + 1) * tasks[i].relative_deadline) - current_time);
   }
 }
 
-/* 
-   Returns the index of the selected task 
-   Returns 0 if no task could be selected 
-   Returns the negative index of the task which has not met its deadline 
+/*
+   Returns the index of the selected task
+   Returns 0 if no task could be selected
+   Returns the negative index of the task which has not met its deadline
 */
 int EDF(rttask tasks[], int num_tasks, int current_time) {
   int i;
@@ -62,12 +60,12 @@ int EDF(rttask tasks[], int num_tasks, int current_time) {
       }
     }
   }
-  
- 
-  /* 
+
+
+  /*
      Foreach task,
        check if the deadline is expired
-         check if the task is over: 
+         check if the task is over:
          if yes, make it runnable
 	 if not, error
 
@@ -77,21 +75,16 @@ int EDF(rttask tasks[], int num_tasks, int current_time) {
     unsigned int next_deadline = tasks[i].arrival_time + (tasks[i].num_executions + 1) * tasks[i].relative_deadline;
     if (current_time == next_deadline) {
       // Check if the task is over
-      if (tasks[i].state == TERMINATED) {
-        tasks[i].state = RUNNABLE;
-	tasks[i].computations_done = 0;
-	tasks[i].num_executions++;
-      }
-      else if (tasks[i].state != ADMISSION) {
-	tasks[i].state = RUNNABLE;
-	tasks[i].computations_done = 0;
-	tasks[i].num_executions++;
-	//return (-i);
-      }
-    } 
+      tasks[i].state = RUNNABLE;
+      tasks[i].computations_done = 0;
+      tasks[i].num_executions++;
+       if (tasks[i].state != ADMISSION) {
+	 fprintf(stderr, "Task %d has not met its deadline\n", i);
+       }
+    }
   }
- 
   
+
 
   /*
     Check if the current running process terminates
@@ -126,8 +119,8 @@ int EDF(rttask tasks[], int num_tasks, int current_time) {
     if (tasks[i].state == RUNNABLE) {
       unsigned int time_to_deadline = (tasks[i].arrival_time + (tasks[i].num_executions + 1) * tasks[i].relative_deadline) - current_time;
       if (time_to_deadline < lowest_time_to_deadline) {
-	lowest_time_to_deadline = time_to_deadline;
-	task_to_schedule = i;
+	    lowest_time_to_deadline = time_to_deadline;
+	    task_to_schedule = i;
       }
     }
   }
@@ -154,8 +147,12 @@ int main(int argc, char *argv[]){
   int num_tasks = 1;
   int time = 0;
   int task_index;
+  
+  int step = 1;
+  if (argc == 2){
+    sscanf(argv[1], "%d", &step);  
+  }
 
- 
 
   /**** Reading the task file, and storing into a struct ****/
   FILE *file = fopen (FILENAME, "r" );
@@ -168,49 +165,46 @@ int main(int argc, char *argv[]){
   printf("Loading file of tasks\n");
   while (fgets(line, sizeof line, file) != NULL ) {
     //printf("Line written=%s\n", line);
-    sscanf(line, "%s %d %d %d", 
-	   tasks[num_tasks].name, 
-	   &tasks[num_tasks].computation_time, 
+    sscanf(line, "%s %d %d %d",
+	   tasks[num_tasks].name,
+	   &tasks[num_tasks].computation_time,
 	   &tasks[num_tasks].arrival_time,
 	   &tasks[num_tasks].relative_deadline);
-    
+
     tasks[num_tasks].state = ADMISSION;
-    tasks[num_tasks].computations_done = 0; 
-    tasks[num_tasks].num_executions = 0; 
+    tasks[num_tasks].computations_done = 0;
+    tasks[num_tasks].num_executions = 0;
     num_tasks++;
-  
+
   }
 
   fclose(file);
   printf("%d tasks loaded\n\n", num_tasks - 1);
-  
+
   print_tasks(tasks, num_tasks, time);
-  
+
   /**** Scheduling the set of tasks ****/
   printf("Scheduling the set of tasks\n");
 
-  
+
   while(1) {
-    //print_tasks(tasks, num_tasks, time);
-    task_index = EDF(tasks, num_tasks, time);
-    if (task_index > 0) {
-      printf("******** Time %d: %s\n\n", time,  tasks[task_index].name);
-    } 
-    else if (task_index == 0) {
-      printf("******** Time %d: no task to schedule\n\n", time);
+    int i = 0;
+    for (i = 0; i < step; i++) {
+      //print_tasks(tasks, num_tasks, time);
+      task_index = EDF(tasks, num_tasks, time);
+      if (task_index > 0) {
+	printf("******** Time %d: %s\n\n", time,  tasks[task_index].name);
+      }
+      else if (task_index == 0) {
+	printf("******** Time %d: no task to schedule\n\n", time);
+      }
+      else {
+	printf("Time %d: tasks %d has not met the deadline\n", time, -task_index);
+      }
+      time ++;
     }
-    else {
-      printf("Time %d: tasks %d has not met the deadline\n", time, -task_index);
-    }
-    time ++;
+    char quit = getchar();
+    if (quit == 'q') return 0;
   }
 
-  
-  /**** That's all folks ****/
-  //  printTasks(tasks, nbOfTasks);
-  time --;
-  printf("All done after %d units of time\n", time);
-  return 0;
 }
-  
-
