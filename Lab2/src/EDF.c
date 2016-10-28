@@ -34,7 +34,7 @@ void print_tasks(rttask tasks[], int num_tasks, int current_time) {
   int i;
 
   for(i = 1; i < num_tasks; i++) {
-    printf("Task: %s  arrival_time:%d state:%s  computations:%d/%d time_to_deadline:%d\n",
+    printf("Task: %s  \tarrival_time:%d \tstate:%s  \tcomputations:%d/%d \ttime_to_deadline:%d\n",
 	   tasks[i].name,
 	   tasks[i].arrival_time,
 	   get_state_string(tasks[i].state),
@@ -47,82 +47,67 @@ void print_tasks(rttask tasks[], int num_tasks, int current_time) {
 /*
    Returns the index of the selected task
    Returns 0 if no task could be selected
-   Returns the negative index of the task which has not met its deadline
 */
 int EDF(rttask tasks[], int num_tasks, int current_time) {
-  int i;
-
-  // Admit new tasks based on the current_time and arrival_time
-  for (i = 1; i < num_tasks; i++) {
-    if (tasks[i].state == ADMISSION) {
-      if (tasks[i].arrival_time == current_time) {
-	tasks[i].state = RUNNABLE;
-      }
-    }
-  }
-
-
-  /*
-     Foreach task,
-       check if the deadline is expired
-         check if the task is over:
-         if yes, make it runnable
-	 if not, error
-
-   */
-  for (i = 1; i < num_tasks; i++) {
-    // Next deadline = Arrival Time + (Number of computations done + 1) * Relative deadline
-    unsigned int next_deadline = tasks[i].arrival_time + (tasks[i].num_executions + 1) * tasks[i].relative_deadline;
-    if (current_time == next_deadline) {
-      // Check if the task is over
-      tasks[i].state = RUNNABLE;
-      tasks[i].computations_done = 0;
-      tasks[i].num_executions++;
-       if (tasks[i].state != ADMISSION) {
-	 fprintf(stderr, "Task %d has not met its deadline\n", i);
-       }
-    }
-  }
-  
-
-
-  /*
-    Check if the current running process terminates
-    if not make it runnable
-   */
-  for (i = 1; i < num_tasks; i++) {
-    if (tasks[i].state == RUNNING) {
-      if (tasks[i].computations_done == tasks[i].computation_time) {
-	tasks[i].state = TERMINATED;
-      }
-    }
-  }
-
-  for (i = 1; i < num_tasks; i++){
-    if (tasks[i].state == RUNNING) {
-      tasks[i].state = RUNNABLE;
-    }
-  }
-  // print_tasks(tasks,num_tasks,current_time);
-  /*
-    Check the tasks who has the lowest TTD (Time-To-Deadline)
-  */
+  int i = 0;
   int flag = 0;
   unsigned int task_to_schedule = -1;
   unsigned int lowest_time_to_deadline;
+
   for (i = 1; i < num_tasks; i++) {
-    if (tasks[i].state == RUNNABLE && flag == 0) {
-      lowest_time_to_deadline = (tasks[i].arrival_time + (tasks[i].num_executions + 1) * tasks[i].relative_deadline) - current_time;
-      task_to_schedule = i;
-      flag = 1;
-    }
-    if (tasks[i].state == RUNNABLE) {
-      unsigned int time_to_deadline = (tasks[i].arrival_time + (tasks[i].num_executions + 1) * tasks[i].relative_deadline) - current_time;
-      if (time_to_deadline < lowest_time_to_deadline) {
-	    lowest_time_to_deadline = time_to_deadline;
-	    task_to_schedule = i;
+    /*
+      Admit new tasks based on the current_time and arrival_time
+     */
+    if (tasks[i].state == ADMISSION) {
+      if (tasks[i].arrival_time == current_time) {
+        tasks[i].state = RUNNABLE;
       }
     }
+    /*
+       Foreach task,
+         check if the deadline is expired
+           check if the task is over:
+           if yes, make it runnable
+  	 if not, error
+     */
+     // Next deadline = Arrival Time + (Number of computations done + 1) * Relative deadline
+     unsigned int next_deadline = tasks[i].arrival_time + (tasks[i].num_executions + 1) * tasks[i].relative_deadline;
+     if (current_time == next_deadline) {
+       // Check if the task is over, if not error
+        if (tasks[i].state == RUNNING || tasks[i].state == RUNNABLE) {
+ 	        fprintf(stderr, "Task %d has not met its deadline\n", i);
+        }
+        tasks[i].state = RUNNABLE;
+        tasks[i].computations_done = 0;
+        tasks[i].num_executions++;
+     }
+     /*
+       Check if the current running process terminates
+       if not make it runnable
+      */
+      if (tasks[i].state == RUNNING) {
+        if (tasks[i].computations_done == tasks[i].computation_time) {
+  	      tasks[i].state = TERMINATED;
+        }
+      }
+      if (tasks[i].state == RUNNING) {
+        tasks[i].state = RUNNABLE;
+      }
+      /*
+        Check the tasks who has the lowest TTD (Time-To-Deadline)
+      */
+      if (tasks[i].state == RUNNABLE && flag == 0) {
+        lowest_time_to_deadline = (tasks[i].arrival_time + (tasks[i].num_executions + 1) * tasks[i].relative_deadline) - current_time;
+        task_to_schedule = i;
+        flag = 1;
+      }
+      if (tasks[i].state == RUNNABLE) {
+        unsigned int time_to_deadline = (tasks[i].arrival_time + (tasks[i].num_executions + 1) * tasks[i].relative_deadline) - current_time;
+        if (time_to_deadline < lowest_time_to_deadline) {
+  	    lowest_time_to_deadline = time_to_deadline;
+  	    task_to_schedule = i;
+        }
+      }
   }
 
   if ( task_to_schedule != -1 ) {
@@ -130,8 +115,6 @@ int EDF(rttask tasks[], int num_tasks, int current_time) {
     tasks[task_to_schedule].state = RUNNING;
     return task_to_schedule;
   }
-
-
 
   // No task could be selected
   return 0;
@@ -147,10 +130,10 @@ int main(int argc, char *argv[]){
   int num_tasks = 1;
   int time = 0;
   int task_index;
-  
+
   int step = 1;
   if (argc == 2){
-    sscanf(argv[1], "%d", &step);  
+    sscanf(argv[1], "%d", &step);
   }
 
 
@@ -198,11 +181,9 @@ int main(int argc, char *argv[]){
       else if (task_index == 0) {
 	printf("******** Time %d: no task to schedule\n\n", time);
       }
-      else {
-	printf("Time %d: tasks %d has not met the deadline\n", time, -task_index);
-      }
       time ++;
     }
+    printf(":");
     char quit = getchar();
     if (quit == 'q') return 0;
   }

@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-I. -Ofast -g
+CFLAGS=-I. -Ofast -funroll-all-loops  
 
 all:
 	$(CC) $(CFLAGS) -o FCFS FCFS.c
