@@ -73,7 +73,7 @@ To analyze thet version of the kernel currently under execution, the command to 
 
 From the source code of \texttt{linux-2.4}, I tried to remove the support for the Ext3 
 filesystem. The new kernel has been compiled (computing all the dependencies and compiling
-all the sources) and mount using \texttt{lilo}.\\
+all the sources) and mounted using \texttt{lilo}.\\
 
 Of course now, without the support for this version of filesystem, the kernel could not correctly 
 load and mount the root filesystem; as conseguence, it entered in the kernel panic state (with error
@@ -174,4 +174,17 @@ After the recompiling operation has been completed, the system has been reboot o
   \caption{Examples of system call use}
 \end{figure}
 
+
+\section{Optimize kernel size}
+I tried different configuratios of the kernel, starting both from a full custom and tuning the default one. The smallest bootable kernel I could compile was about 600 KB (with respect of more than 850 KB with default configuration is about 30\% less). In the following pictures, the kernel size and the proof of the system calls are presented. A lot of errors appear but the system call still works.  
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./small2.png}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./small_example.png}
+\end{figure}
 \end{document}

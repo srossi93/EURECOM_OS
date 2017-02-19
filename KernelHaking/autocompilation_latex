@@ -1,0 +1,1 @@
+latexmk -pvc -pdf -output-directory=out report_OS_kernelhaking.tex
